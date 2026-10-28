@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://be2fv0dega6qg"]
+
+[ext_resource type="Texture2D" uid="uid://bkree5m4xc6m1" path="res://images/enemy.png" id="1_jm2hm"]
+[ext_resource type="PackedScene" uid="uid://ba5ravebk8q6p" path="res://scenes/enities/Player.tscn" id="1_unugr"]
+[ext_resource type="PackedScene" uid="uid://b5et5o6qhwkit" path="res://scenes/enities/Enemy.tscn" id="1_w2k4y"]
+[ext_resource type="Script" uid="uid://dyprmq1k5dnca" path="res://scripts/stats/Health.gd" id="2_a0ubh"]
+[ext_resource type="Script" uid="uid://hxboj48p8crp" path="res://scripts/stats/EnemyPathFinder.gd" id="3_4iboa"]
+[ext_resource type="PackedScene" uid="uid://b0tmc3y73rw11" path="res://scenes/enities/Boss.tscn" id="3_vn80e"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+
+[node name="Sandbox" type="Node2D" unique_id=817882447]
+
+[node name="Enemy3" type="Node2D" parent="." unique_id=1229429804]
+position = Vector2(-145, 108)
+
+[node name="Character" type="CharacterBody2D" parent="Enemy3" unique_id=2011171855]
+position = Vector2(22, 0)
+
+[node name="Display" type="Sprite2D" parent="Enemy3/Character" unique_id=1773687826]
+position = Vector2(278, 133)
+scale = Vector2(0.19140625, 0.1875)
+texture = ExtResource("1_jm2hm")
+
+[node name="Label" type="Label" parent="Enemy3/Character" unique_id=1617219245]
+offset_left = 254.0
+offset_top = 87.0
+offset_right = 294.0
+offset_bottom = 110.0
+
+[node name="Hitboxes" type="CollisionShape2D" parent="Enemy3/Character" unique_id=2004469502]
+shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="Health" type="Node" parent="Enemy3/Character" unique_id=333438540 node_paths=PackedStringArray("health_label")]
+script = ExtResource("2_a0ubh")
+max_health = 50
+current_health = 45
+health_label = NodePath("../Label")
+
+[node name="Movement" type="Node" parent="Enemy3/Character" unique_id=1340071155]
+script = ExtResource("3_4iboa")
+
+[node name="Attack" type="Node2D" parent="Enemy3/Character" unique_id=1456463629]
+position = Vector2(-26, 95)
+
+[node name="Weapon" type="Node2D" parent="Enemy3/Character/Attack" unique_id=986221434]
+position = Vector2(-13, 0)
+
+[node name="Enemy2" type="Node2D" parent="." unique_id=614556075]
+position = Vector2(-71, -10)
+
+[node name="Character" type="CharacterBody2D" parent="Enemy2" unique_id=536947984]
+position = Vector2(22, 0)
+
+[node name="Display" type="Sprite2D" parent="Enemy2/Character" unique_id=1330218277]
+position = Vector2(278, 133)
+scale = Vector2(0.19140625, 0.1875)
+texture = ExtResource("1_jm2hm")
+
+[node name="Label" type="Label" parent="Enemy2/Character" unique_id=1684852590]
+offset_left = 254.0
+offset_top = 87.0
+offset_right = 294.0
+offset_bottom = 110.0
+
+[node name="Hitboxes" type="CollisionShape2D" parent="Enemy2/Character" unique_id=1452317711]
+shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="Health" type="Node" parent="Enemy2/Character" unique_id=1372277034 node_paths=PackedStringArray("health_label")]
+script = ExtResource("2_a0ubh")
+max_health = 50
+current_health = 50
+health_label = NodePath("../Label")
+
+[node name="Movement" type="Node" parent="Enemy2/Character" unique_id=1429106586]
+script = ExtResource("3_4iboa")
+
+[node name="Attack" type="Node2D" parent="Enemy2/Character" unique_id=1064308202]
+position = Vector2(-26, 95)
+
+[node name="Weapon" type="Node2D" parent="Enemy2/Character/Attack" unique_id=952387611]
+position = Vector2(-13, 0)
+
+[node name="Enemy1" parent="." unique_id=778221999 instance=ExtResource("1_w2k4y")]
+position = Vector2(-36, 124)
+
+[node name="Player" parent="." unique_id=1031516195 instance=ExtResource("1_unugr")]
+position = Vector2(-36, 36)
+
+[node name="Boss" parent="." unique_id=1407555602 instance=ExtResource("3_vn80e")]
+position = Vector2(180, -7)

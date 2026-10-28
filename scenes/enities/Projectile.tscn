@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cmwf7g35fqkiy"]
+
+[node name="Projectile" type="Node2D" unique_id=143640977]
+
+[node name="Projectile" type="Area2D" parent="." unique_id=46252487]
+
+[node name="Display" type="Sprite2D" parent="Projectile" unique_id=1827244509]
+
+[node name="Hitboxes" type="CollisionShape2D" parent="Projectile" unique_id=323648159]

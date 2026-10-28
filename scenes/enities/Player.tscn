@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ba5ravebk8q6p"]
+
+[ext_resource type="PackedScene" uid="uid://cxmvh7fvrahk5" path="res://scenes/enities/Entity.tscn" id="1_c4moq"]
+[ext_resource type="Texture2D" uid="uid://cfvbut7tddmdy" path="res://images/character.png" id="2_nu7f8"]
+[ext_resource type="Script" uid="uid://df7s502dx1mre" path="res://scripts/stats/PlayerMovement.gd" id="3_mvci5"]
+
+[node name="Entity" unique_id=1229429804 instance=ExtResource("1_c4moq")]
+
+[node name="Character" parent="." index="0" unique_id=2011171855]
+position = Vector2(42, 12)
+
+[node name="Display" parent="Character" index="0" unique_id=1773687826]
+position = Vector2(40, 32.000004)
+texture = ExtResource("2_nu7f8")
+
+[node name="Label" parent="Character" index="1" unique_id=1617219245]
+offset_left = 16.0
+offset_top = -14.0
+offset_right = 58.0
+offset_bottom = 9.0
+
+[node name="Hitboxes" parent="Character" index="2" unique_id=2004469502]
+position = Vector2(39, 31)
+
+[node name="Health" parent="Character" index="3" unique_id=333438540]
+current_health = 75
+
+[node name="Movement" parent="Character" index="4" unique_id=1340071155]
+script = ExtResource("3_mvci5")
+speed = 300.0
+
+[node name="Attack" parent="Character" index="5" unique_id=1456463629]
+position = Vector2(64, 27)
+
+[node name="Weapon" parent="Character/Attack" index="0" unique_id=986221434]
+position = Vector2(-2, 6)

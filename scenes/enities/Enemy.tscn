@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b5et5o6qhwkit"]
+
+[ext_resource type="PackedScene" uid="uid://cxmvh7fvrahk5" path="res://scenes/enities/Entity.tscn" id="1_tko3j"]
+[ext_resource type="Texture2D" uid="uid://bkree5m4xc6m1" path="res://images/enemy.png" id="2_xdh4f"]
+[ext_resource type="Script" uid="uid://hxboj48p8crp" path="res://scripts/stats/EnemyPathFinder.gd" id="3_xdh4f"]
+
+[node name="Entity" unique_id=1229429804 instance=ExtResource("1_tko3j")]
+
+[node name="Display" parent="Character" parent_id_path=PackedInt32Array(2011171855) index="0" unique_id=1773687826]
+position = Vector2(278, 133)
+texture = ExtResource("2_xdh4f")
+
+[node name="Label" parent="Character" parent_id_path=PackedInt32Array(2011171855) index="1" unique_id=1617219245]
+offset_left = 254.0
+offset_top = 87.0
+offset_right = 294.0
+offset_bottom = 110.0
+
+[node name="Health" parent="Character" parent_id_path=PackedInt32Array(2011171855) index="3" unique_id=333438540]
+max_health = 50
+current_health = 35
+
+[node name="Movement" parent="Character" parent_id_path=PackedInt32Array(2011171855) index="4" unique_id=1340071155]
+script = ExtResource("3_xdh4f")

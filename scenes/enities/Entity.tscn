@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cxmvh7fvrahk5"]
+
+[ext_resource type="Script" uid="uid://hxboj48p8crp" path="res://scripts/stats/EnemyPathFinder.gd" id="2_f38cq"]
+[ext_resource type="Script" uid="uid://dyprmq1k5dnca" path="res://scripts/stats/Health.gd" id="2_qsgbg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4v7s"]
+
+[node name="Entity" type="Node2D" unique_id=1229429804]
+
+[node name="Character" type="CharacterBody2D" parent="." unique_id=2011171855]
+position = Vector2(22, 0)
+
+[node name="Display" type="Sprite2D" parent="Character" unique_id=1773687826]
+position = Vector2(52, 51.000015)
+scale = Vector2(0.19140625, 0.1875)
+
+[node name="Label" type="Label" parent="Character" unique_id=1617219245]
+offset_left = 31.0
+offset_top = 19.0
+offset_right = 71.0
+offset_bottom = 42.0
+
+[node name="Hitboxes" type="CollisionShape2D" parent="Character" unique_id=2004469502]
+shape = SubResource("CapsuleShape2D_g4v7s")
+
+[node name="Health" type="Node" parent="Character" unique_id=333438540 node_paths=PackedStringArray("health_label")]
+script = ExtResource("2_qsgbg")
+current_health = 55
+health_label = NodePath("../Label")
+
+[node name="Movement" type="Node" parent="Character" unique_id=1340071155]
+script = ExtResource("2_f38cq")
+
+[node name="Attack" type="Node2D" parent="Character" unique_id=1456463629]
+position = Vector2(-26, 95)
+
+[node name="Weapon" type="Node2D" parent="Character/Attack" unique_id=986221434]
+position = Vector2(-13, 0)
